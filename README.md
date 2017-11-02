@@ -1,8 +1,11 @@
 # dateRanges
 二次封装时间选择插件laydate5.0.7
+
 相对绝对时间范围选择
+
 包含功能：单周，双周，单月，季度，自定义范围选择
-相对时间选择，最近7天，最近14天，最近30天，最近90天
+
+相对时间选择：最近7天，最近14天，最近30天，最近90天
 
 配置项：
 
@@ -48,6 +51,17 @@
         
         , cycle:'week' //默认选择单周:week,双周：double-week,自然月：month,自然季度：quarterly,自定义：self
         
+使用方式
+
+html:
+        <input  type="text" placeholder="选择时间段" id="userTime">
+js:
+        laydate.render({
+                        elem: '#userTime'
+                        ,range: true
+                        ,type:'month'
+                        ,cycle:'month'
+                    });
 
         单周选择
 ![image](http://www.bloggeng.com/wp-content/uploads/2017/11/week.png)
