@@ -54,15 +54,26 @@
 使用方式
 
 html:
+<code>
+
         <input  type="text" placeholder="选择时间段" id="userTime">
+
+</code>
 js:
+<code>
         laydate.render({
+
                         elem: '#userTime'
+
                         ,range: true
+
                         ,type:'month'
+
                         ,cycle:'month'
+
                     });
 
+</code>
 更多配置项的使用，可以参考laydate官网：<a herf="http://www.layui.com/laydate/">http://www.layui.com/laydate/</a>
         单周选择
 ![image](http://www.bloggeng.com/wp-content/uploads/2017/11/week.png)
