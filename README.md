@@ -54,13 +54,16 @@
 使用方式
 
 html:
+
 <code>
 
         <input  type="text" placeholder="选择时间段" id="userTime">
 
 </code>
 js:
+
 <code>
+
         laydate.render({
 
                         elem: '#userTime'
