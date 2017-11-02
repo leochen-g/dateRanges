@@ -50,30 +50,27 @@
         
 
         单周选择
-        
-<img src="http://www.bloggeng.com/wp-content/uploads/2017/11/week.png" draggable="false" alt="">
-        
+        ![image](http://www.bloggeng.com/wp-content/uploads/2017/11/week.png)
+
         双周选择
-        
-        
-<img src=" http://www.bloggeng.com/wp-content/uploads/2017/11/double.png" draggable="false" alt="">
+        ![image](http://www.bloggeng.com/wp-content/uploads/2017/11/double.png)
+
        
        自然月
-       
-       
-<img src=" http://www.bloggeng.com/wp-content/uploads/2017/11/month.png" draggable="false" alt="">
+       ![image](http://www.bloggeng.com/wp-content/uploads/2017/11/month.png)
+
        
        自然季度
-       
-<img src=" http://www.bloggeng.com/wp-content/uploads/2017/11/jidu.png" draggable="false" alt="">
+       ![image](http://www.bloggeng.com/wp-content/uploads/2017/11/jidu.png)
+
        
        自定义
-       
-<img src=" http://www.bloggeng.com/wp-content/uploads/2017/11/self.png" draggable="false" alt="">
+       ![image](http://www.bloggeng.com/wp-content/uploads/2017/11/self.png)
+
        
       相对时间
-      
-<img src=" http://www.bloggeng.com/wp-content/uploads/2017/11/xiang.png" draggable="false" alt="">
+      ![image](http://www.bloggeng.com/wp-content/uploads/2017/11/xiang.png)
+
       
       
      
