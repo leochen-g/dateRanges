@@ -26,6 +26,7 @@
         , Interval: true //开启区间范围
         , time:'absolute' //默认绝对时间 relative 相对时间
         , cycle:'week' //默认选择单周:week,双周：double-week,自然月：month,自然季度：quarterly,自定义：self
+        ,monthOnly:true //默认只显示月份
  */
 
 ;!function () {
@@ -411,6 +412,7 @@
         , Interval: true //开启区间范围
         , time:'absolute' //默认绝对时间
         , cycle:'week' //默认选择单周:week,双周：double-week,自然月：month,自然季度：quarterly,自定义：self
+        , monthOnly:false
     };
 
     //多语言
@@ -742,7 +744,12 @@
         //生成头部nav
         lay(elemHeaderNav).html(function () {
             var html = [], btns = [];
-            html.push('<span class="headerNav" id="absoluteTime">绝对时间</span><span id="relativeTime" class="headerNav">相对时间</span>');
+            if(options.monthOnly===true){
+                html.push('<span class="headerNav" id="absoluteTime">绝对时间</span>');
+            }else {
+                html.push('<span class="headerNav" id="absoluteTime">绝对时间</span><span id="relativeTime" class="headerNav">相对时间</span>');
+            }
+
             return html.join('')
         }());
         //相对时间页面渲染
@@ -777,20 +784,38 @@
                     if (isStatic && item === 'clear') title = options.lang === 'cn' ? '重置' : 'Reset';
                     btns.push('<span lay-type="' + item + '" class="laydate-btns-' + item + '">' + title + '</span>');
                 });
-                html.push('<div class="laydate-footer-title">选择统计周期:</div>' +
-                    '<div class="menu">' +
-                    '<ul class="menu-list">' +
-                    '<li id="week">自然周</li>' +
-                    '<li id="double-week">自然双周</li>' +
-                    '<li id="month">自然月</li>' +
-                    '<li id="quarterly">自然季度</li>' +
-                    '<li id="self">自定义起始日期</li>' +
-                    '</ul>' +
-                    '<div>' +
-                    '<span class="layui-icon laydate-icon" id="tishi">&#xe60b;预设分群按自然周期计算</span>' +
-                    '</div>' +
-                    '<div class="laydate-footer-btns">' + btns.join('') + '</div>');
-                return html.join('');
+                if(options.monthOnly===true){
+                    html.push('<div class="laydate-footer-title">选择统计周期:</div>' +
+                        '<div class="menu">' +
+                        '<ul class="menu-list" style="min-height:100px">' +
+                        '<li id="week" style="display: none">自然周</li>' +
+                        '<li id="double-week" style="display: none">自然双周</li>' +
+                        '<li id="month">自然月</li>' +
+                        '<li id="quarterly" style="display: none">自然季度</li>' +
+                        '<li id="self" style="display: none">自定义起始日期</li>' +
+                        '</ul>' +
+                        '<div>' +
+                        '<span class="layui-icon laydate-icon" id="tishi">&#xe60b;预设分群按自然周期计算</span>' +
+                        '</div>' +
+                        '<div class="laydate-footer-btns">' + btns.join('') + '</div>');
+                    return html.join('');
+                }else{
+                    html.push('<div class="laydate-footer-title">选择统计周期:</div>' +
+                        '<div class="menu">' +
+                        '<ul class="menu-list">' +
+                        '<li id="week">自然周</li>' +
+                        '<li id="double-week">自然双周</li>' +
+                        '<li id="month">自然月</li>' +
+                        '<li id="quarterly">自然季度</li>' +
+                        '<li id="self">自定义起始日期</li>' +
+                        '</ul>' +
+                        '<div>' +
+                        '<span class="layui-icon laydate-icon" id="tishi">&#xe60b;预设分群按自然周期计算</span>' +
+                        '</div>' +
+                        '<div class="laydate-footer-btns">' + btns.join('') + '</div>');
+                    return html.join('');
+                }
+
             }());
         elem.appendChild(elemHeaderNav);
         elem.appendChild(elemClear);
@@ -1036,7 +1061,6 @@
             , rect = elem.getBoundingClientRect() //绑定元素的坐标
             , elemWidth = that.elem.offsetWidth //控件的宽度
             , elemHeight = that.elem.offsetHeight //控件的高度
-
             //滚动条高度
             , scrollArea = function (type) {
                 type = type ? 'scrollLeft' : 'scrollTop';
@@ -1045,7 +1069,10 @@
             , winArea = function (type) {
                 return document.documentElement[type ? 'clientWidth' : 'clientHeight']
             }, margin = 5, left = rect.left, top = rect.bottom;
-
+        if(options.time==='relative'){
+            elemWidth = 232; //控件的宽度
+            elemHeight = 194 //控件的高度
+        }
         //如果右侧超出边界
         if (left + elemWidth + margin > winArea('width')) {
             left = winArea('width') - elemWidth - margin;

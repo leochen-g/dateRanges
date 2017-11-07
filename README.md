@@ -80,7 +80,7 @@ js:
 更多配置项的使用，可以参考laydate官网：<a herf="http://www.layui.com/laydate/">http://www.layui.com/laydate/</a>
 
         单周选择
-        
+
 ![image](http://www.bloggeng.com/wp-content/uploads/2017/11/week.png)
 
         双周选择
